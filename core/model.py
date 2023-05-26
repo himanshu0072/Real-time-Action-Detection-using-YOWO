@@ -58,9 +58,9 @@ class YOWO(nn.Module):
             raise ValueError("Wrong backbone_3d model is requested. Please select it from [resnext101, resnet101, \
                              resnet50, resnet18, mobilenet_2x, mobilenetv2_1x, shufflenet_2x, shufflenetv2_2x]")
         if cfg.WEIGHTS.BACKBONE_3D:# load pretrained weights on Kinetics-600 dataset
-            self.backbone_3d = self.backbone_3d
+            self.backbone_3d = self.backbone_3d.cuda()
             self.backbone_3d = nn.DataParallel(self.backbone_3d, device_ids=None) # Because the pretrained backbone models are saved in Dataparalled mode
-            pretrained_3d_backbone = torch.load(cfg.WEIGHTS.BACKBONE_3D, map_location=torch.device('cpu'))
+            pretrained_3d_backbone = torch.load(cfg.WEIGHTS.BACKBONE_3D)
             backbone_3d_dict = self.backbone_3d.state_dict()
             pretrained_3d_backbone_dict = {k: v for k, v in pretrained_3d_backbone['state_dict'].items() if k in backbone_3d_dict} # 1. filter out unnecessary keys
             backbone_3d_dict.update(pretrained_3d_backbone_dict) # 2. overwrite entries in the existing state dict
