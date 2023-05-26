@@ -36,7 +36,7 @@ if not os.path.exists(cfg.BACKUP_DIR):
 ####### Create model
 # ---------------------------------------------------------------
 model = YOWO(cfg)
-model = model.cuda()
+model = model
 model = nn.DataParallel(model, device_ids=None) # in multi-gpu case
 # print(model)
 pytorch_total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -94,7 +94,7 @@ if dataset == 'ava':
     test_loader  = torch.utils.data.DataLoader(test_dataset, batch_size=cfg.TRAIN.BATCH_SIZE, shuffle=False,
                                                num_workers=cfg.DATA_LOADER.NUM_WORKERS, drop_last=False, pin_memory=True)
 
-    loss_module   = RegionLoss_Ava(cfg).cuda()
+    loss_module   = RegionLoss_Ava(cfg)
 
     train = getattr(sys.modules[__name__], 'train_ava')
     test  = getattr(sys.modules[__name__], 'test_ava')
@@ -116,7 +116,7 @@ elif dataset in ['ucf24', 'jhmdb21']:
     test_loader   = torch.utils.data.DataLoader(test_dataset, batch_size= cfg.TRAIN.BATCH_SIZE, shuffle=False,
                                                num_workers=cfg.DATA_LOADER.NUM_WORKERS, drop_last=False, pin_memory=True)
 
-    loss_module   = RegionLoss(cfg).cuda()
+    loss_module   = RegionLoss(cfg)
 
     train = getattr(sys.modules[__name__], 'train_ucf24_jhmdb21')
     test  = getattr(sys.modules[__name__], 'test_ucf24_jhmdb21')
