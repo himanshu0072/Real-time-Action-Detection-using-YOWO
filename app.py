@@ -132,7 +132,7 @@ def result_camera():
 def result_video():
     import subprocess
     if 'url' in session:
-        flash('Detection Started Please wait.....', 'success')
+        # flash('Detection Started Please wait.....', 'success')
         cmd =f"python test_video_ava.py --cfg cfg/ava.yaml --url {session['url']}".split()
         print(cmd)
         subprocess.call(cmd, shell=True) 
