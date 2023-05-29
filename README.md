@@ -1,13 +1,20 @@
 # Real Time Action Detection Web App using YOWO Algorithm 
 <p>This a repo for a real time action detection system. Through this web app anyone can detect what's happening at real time.The can detect through uploading video file or directly through Camera Also. This project uses YOWO Algorithm which the best algorithm till now because it is Fast & Accurate.</p>
-Check the Web App Live 👉 <a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
 
-#### See Example :- 
+#### See YOWO Algorithm Example :- 
 <div>
   <img src='/examples/ava1.gif'>&nbsp; &nbsp; &nbsp;&nbsp;
   <img src='/examples/ava3.gif'>&nbsp; &nbsp; &nbsp;&nbsp;
   <img src='/examples/ava4.gif'>
 </div>
+<br>
+
+#### See Web App Example :- 
+<div style="display:flex;">
+  <img src='/examples/frontpage.jpg' width=40%>&nbsp; &nbsp; &nbsp;&nbsp;
+  <img src='/examples/dashboard.jpg' width="40%">&nbsp; &nbsp; &nbsp;&nbsp;
+</div>
+Check the Web App Live 👉 <a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
 
 #### What we have used :-
 <ol>
