@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container col-10 p-4 bg-dark mt-5 animate__animated animate__pulse">
+    <h1 class="text-center mb-3">Support Desk - We are Available <span class="ring-container">
+            <div class="ringring"></div>
+            <div class="circle"></div>
+        </span>
+    </h1>
+    <marquee class="text-danger">Hey welcome to support desk ! We are here to help you 24X7. Ask Your Query Now
+    </marquee>
+    <div class="container mt-4">
+        <div class="row text-center">
+            <div class="col-sm-6">
+                <h3>Contact Us</h3>
+                <form class="col-md-6 QueryForm mt-2 " method="POST" enctype="multipart/form-data"
+                    action="{{ url_for('support') }}">
+                    <div class="msg mb-2">{{ msg }}</div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name">
+                        <label for="formId1" class="text-dark">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                        <label for="formId1" class="text-dark">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="phone" id="phone"
+                            placeholder="Enter Your Phone no.">
+                        <label for="formId1" class="text-dark">Phone no.</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" name="query" id="query" placeholder="Your Name"
+                            style="height: 80px"></textarea>
+                        <label for="text" class="text-dark">Write your Query</label>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </div>
+            <div class="col-sm-6 mt-4 border-start ContactDetailSection">
+                <img src="/static/images/cc.jpg" alt="customer care" width="300px" id="CustomerCare">
+                <h3>Email your query now</h3>
+                <p>Email: realtime@gmail.com<br>
+                    or<br>
+                    Call at +918777566564</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

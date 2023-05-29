@@ -45,6 +45,12 @@ def parse_args():
         default=None,
         nargs=argparse.REMAINDER,
     )
+    parser.add_argument(
+        '--url',
+        help ="pass a video url or 0",
+        default = 0,
+        type = str
+    )
     if len(sys.argv) == 1:
         parser.print_help()
     return parser.parse_args()

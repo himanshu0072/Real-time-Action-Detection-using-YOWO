@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container my-2 mt-5 RegisterSection">
+    <div class="row">
+        <div class=" text-center bg-dark pt-2">
+            <h2>Create Your Account First</h2>
+        </div>
+        <div class="col-md-6 bg-dark pt-3 pb-3">
+            <img src="/static/images/signup.png" alt="Register Now" style="width: 100%;">
+        </div>
+        <div class="col-md-6 bg-dark">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" class="bg-dark mt-5"
+                    action="{{ url_for('register') }}">
+                    <div class="msg">{{ msgg }}</div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Name" />
+                        <label for="name" class="text-dark">Your Name</label>
+                        <small id="helpId" class="form-text text-muted ml-1">Enter your full name</small>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email" id="name"
+                            placeholder="Enter Your Email" />
+                        <label for="email" class="text-dark">Email</label>
+                        <small id="helpId" class="form-text text-muted ml-1">Enter your email</small>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Enter Your Password">
+                        <label for="password" class="form-label text-dark">Password</label>
+                        <small id="helpId" class="form-text text-muted ml-1">Enter a unique password</small>
+                    </div>
+                    <div class="mb-0">
+                        <label for="gender" class="form-label">Gender</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="female" />
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" />
+                        <label class="form-check-label" for="male">male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="other" value="other" />
+                        <label class="form-check-label" for="">other</label>
+                    </div>
+                    <p class="my-2 text-muted">Already Having a account ? <a href="/login">Login Here</a>.</p>
+                    <div class="my-3">
+                        <button type="submit" class="btn btn-danger btn-block">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center UserHeading mt-5" mt-5>Welcome {{ user_name }} <svg xmlns="http://www.w3.org/2000/svg" width="50"
+        height="50" fill="currentColor" class="bi bi-person-lock" viewBox="0 0 16 16">
+        <path
+            d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z" />
+    </svg>
+    <a type="button" class="btn btn-danger UserLogout" href="/logout">Log out <svg xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+            <path fill-rule="evenodd"
+                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+        </svg></a>
+</h1>
+<div class="container p-4 bg-dark my-4 border-2">
+    <form class="file-upload" method="post" action="/upload" enctype="multipart/form-data">
+        <div class="row text-dark">
+            <div class="col-sm-6 px-4">
+                <h1 class="mb-4 text-center text-dark border-bottom">Detect in a Video file</h1>
+                <b>Step - 1</b>
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" name="file" type='file' onchange="readVideoURL(this);"
+                        accept="video/*" />
+                    <div class="drag-text">
+                        <h3>Drag and drop a file or select to add Video</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <video class="file-upload-image" src="#" autoplay controls></video>
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                                class="image-title">Uploaded Image</span></button>
+                    </div>
+                </div>
+                <button class="file-upload-btn mt-3 mb-3" type="button"
+                    onclick="$('.file-upload-input').trigger( 'click' )">Select Video
+                </button>
+                <div>
+                    <!-- <img src="/static/images/arrow.gif" alt="detetc now" class="mb-4" width="10%"> -->
+                    <div>
+                        <b>Step - 2</b>
+                        <button type="submit" class="file-upload-btn mb-3" id="startDetectionButton">Upload
+                            Video
+                            For
+                            Detection</button>
+                        <p class="text text-dark">Current video: {{session.url}}</p>
+                    </div>
+                    <b>Step - 3</b>
+                    <div class="py-2">
+                        <a class="text-center btn btn-danger" id="startDetectionButton" href="/result/video">Start
+                            Detection</a>
+                    </div>
+                    <div class="text-left mt-4">
+                        <b>Note :-</b>
+                        <span>Now wait for a while to Start Detection</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 px-4 border-start startDetectionSection text-center">
+                <h1 class="mb-4 text-center text-dark border-bottom">Detect using Camera</h1>
+                <div class="text-left">
+                    <b>Step -1 :-</b>
+                    <span>Click on Open Camera to start</span>
+                </div>
+                <div class="mt-3 text-left">
+                    <a class="btn btn-danger" id="startDetectionButton" href="/result/camera">Open Camera</a>
+                </div>
+                <div class="text-left mt-4">
+                    <b>Note :-</b>
+                    <span>Now wait for a while to Start Detection</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

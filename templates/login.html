@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-2 mt-5 LoginSection ">
+    <div class="row my-2">
+        <div class="col-md-6 mx-auto card bg-dark">
+            <div class="card-body bg-dark">
+                <form method="POST" enctype="multipart/form-data" class="bg-dark" action="{{ url_for('login') }}">
+                    <div class="text-center">
+                        <h2 class="my-4 mt-1">Welcome Back</h2>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email" id="name"
+                            placeholder="Enter Your Email" />
+                        <label for="email" class="text-dark">Email</label>
+                        <small id="helpId" class="form-text text-muted ml-1">Enter your rgistered email</small>
+                    </div>
+                    <div class="form-floating mb-3">
+
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Enter Your Password">
+                        <label for="password" class="form-label text-dark">Password</label>
+                        <small id="helpId" class="form-text text-muted ml-1">Enter your password</small>
+                    </div>
+                    <p class="my-2 text-muted">Don't Have a account ? <a href="/register">Signup Here</a>.</p>
+
+                    <div class="my-3 text-center">
+                        <button type="submit" class="btn btn-danger ">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

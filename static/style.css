@@ -1,0 +1,341 @@
+body{
+    background-image: url("./images/bg.jpg");
+    background-size: 250vh;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: sans-serif;
+}
+.navbar{
+    font-size: 16px;
+}
+.brand{
+    font-size: 26px;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+.mainPage{
+    margin-top: 14%;
+}
+.mainPage P{
+    font-size: 20px;
+}
+.mainPage h1{
+    font-size: 55px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.LoginForm{
+    padding-right: 0px;
+}
+#CustomerCare{
+    border-radius: 50%;
+    margin-bottom: 2%;
+}
+.QueryForm{
+    margin-left: 25%;
+}
+.form-control{
+    height: 10px;
+}
+.WhyusImage{
+  padding-top: 1%;
+  
+}
+.WhyusImage img{
+  border: 5px solid white;
+
+}
+/* Css for second section */
+.SecondSection{
+  display: flex;
+  background-color: rgb(0, 111, 130);
+}
+.TextArea{
+  margin-left: 5%;
+}
+
+/* css for green dot */
+.ring-container {
+    position: relative;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    background-color: #62bd19;
+    border-radius: 50%;
+    position: absolute;
+    top: 23px;
+    left: 23px;
+}
+
+.ringring {
+    border: 3px solid #62bd19;
+    -webkit-border-radius: 30px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+/* css for uload file page */
+.file-upload {
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .DetectBtn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #d10000;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #f44f08;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .file-upload-btn:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  
+  .file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #1FB264;
+    position: relative;
+  }
+  
+  .image-dropping,
+  .image-upload-wrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+  }
+  
+  .image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }
+  
+  .drag-text {
+    text-align: center;
+  }
+  
+  .drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+  }
+  
+  .file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+
+  .startDetection{
+    text-decoration: none;
+    width: 40%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .startDetection:hover{
+    text-decoration: none;
+    color: white;
+  }
+
+  /* css for open social media footer component */
+  .footer{
+    background-color: transparent !important;
+  }
+  .mainPage{
+    padding-bottom: 11%;
+  }
+
+  /* css for admin panel */
+  
+  .blink {
+      color : green;
+      font-size: 40px;
+        animation: blink 2s steps(5, start) infinite;
+        -webkit-animation: blink 1s steps(5, start) infinite;
+      }
+      @keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }
+      @-webkit-keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }
+@media only screen and (max-width: 600px) {
+  /* css for small screen navbar */
+    .navbar-toggler{
+      margin-right: 5%;
+    }
+    .NavItems{
+      padding-left: 8% !important;
+    }
+    .brand{
+      font-size: 16px;
+      padding-left: 10%;
+    }
+    /* css for home page */
+    .mainPage{
+      margin: 10px !important;
+    }
+    .mainPage h1{
+      margin-top: 20% !important;
+      font-size: 5vh;
+    }
+    .mainPage p{
+      margin-top: 5% !important;
+      font-size: 16px;
+    }
+    .mainPage a{
+      margin-top: 5% !important;
+      margin-bottom: 35% !important;
+    }
+
+    /* css for support page  */
+    .QueryForm{
+        margin-left: 5%;
+    }
+    
+    /* css for support page border */
+    .ContactDetailSection{
+      margin-top: 10%; 
+      border-left: none !important;
+      border-top: 3px solid white;
+      padding-top: 5%;
+    }
+    /* css for user dashbord page open camera section */
+    .startDetectionSection{
+      margin-top: 10%; 
+      border-left: none !important;
+      border-top: 3px solid white;
+      padding-top: 5%;
+      
+    }
+    .UserHeading{
+      margin-top: 10% !important;
+    }
+    .UserLogout{
+      margin-left: 10px;
+    }
+    .startDetectionSection{
+      height: 150px;
+    }
+    /* css for login page */
+    .LoginSection{
+      margin-top: 15% !important;
+      margin-bottom: 15% !important;
+    }
+    /* css for registerpage */
+    .RegisterSection{
+      margin-top: 15% !important;
+      margin-bottom: 15% !important;
+    }
+    .WhyusContainer{
+      display: block !important;
+    }
+    .WhyusImage img{
+      width: 90%;
+      margin-left: 5%;
+    
+    }
+
+}

@@ -1,2 +1,6 @@
-opencv-contrib-python
-fvcore
+flask
+sqlalchemy
+pillow
+scikit-learn
+numpy
+plotly
