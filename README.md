@@ -1,6 +1,6 @@
-# Real Time Action Detection Web App
-<p>This a repo for a real time action detection system. Through this web app anyone can detect what's happening at real time.The can detect through uploading video file or directly through Camera Also.</p>
-check once👉<a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
+# Real Time Action Detection Web App using YOWO Algorithm 
+<p>This a repo for a real time action detection system. Through this web app anyone can detect what's happening at real time.The can detect through uploading video file or directly through Camera Also. This project uses YOWO Algorithm which the best algorithm till now because it is Fast & Accurate.</p>
+Check the Web App Live 👉 <a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
 
 #### See Example :- 
 <div>
@@ -19,4 +19,39 @@ check once👉<a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/
   <li><b>Docker</b> - For Deployment</li>
 </ol>
 
-## Step by Step proceduce to clone this Project
+## Installation
+
+#### Clone this repo from the given Command 👇
+```sh
+$ git clone https://github.com/himanshu0072/Real-time-Action-Detection-using-YOWO
+```
+## Frontend - Setup 
+
+#### Now Install the required libraries by the given command 👇
+###### it will install all the library which is inside requirments.txt
+```sh
+$ pip install -r requirments.txt
+```
+
+Now you are able to run <b>app.py</b> and you can run it on localhost
+
+
+## YOWO - Validating & Running
+
+
+1. Install the required libraries which is imported inside of <b>test_video_ava.py file.</b><br>
+2. Now install the torch with cuda enabled. You can visite official website of <a href="https://pytorch.org/" target="_blank">Pytorch</a> or use the following command 👇
+
+```sh
+$ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
+<br>
+3. All training configurations are given in <a href="https://github.com/himanshu0072/Real-time-Action-Detection-using-YOWO/blob/master/cfg/ava.yaml" target="_blank">ava.yaml</a><br>
+4. Now to run and test the video in Yowo Algorithm use this command👇
+
+```sh
+$ python main.py --cfg cfg/ava.yaml
+```
+
+## Note :
+This Project is using AVA Dataset. So to download the dataset and setup the file you can visit <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">AVA DATASET</a>
