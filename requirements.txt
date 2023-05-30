@@ -4,3 +4,7 @@ pillow
 scikit-learn
 numpy
 plotly
+torch
+torchvision
+opencv-python
+werkzeug
