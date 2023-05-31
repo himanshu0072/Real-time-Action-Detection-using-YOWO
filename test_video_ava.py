@@ -185,7 +185,7 @@ while (cap.isOpened()):
             frame = cv2.addWeighted(frame, 1.0, blk, 0.25, 1)
             for t in range(len(text)):
                 cv2.putText(frame, text[t], coord[t], font, 0.25, (0, 0, 0), 1)
-    frame = cv2.resize(frame, (0,0), fx=3, fy=3)
+    frame = cv2.resize(frame, (0,0), fx=2.5, fy=2.5)
     cv2.imshow('frame', frame)
     # cv2.imwrite('{:05d}.jpg'.format(cnt), frame) # save figures if necessay
     cnt += 1
