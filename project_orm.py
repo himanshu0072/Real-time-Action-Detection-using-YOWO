@@ -18,6 +18,16 @@ class User(Base):
 
     def __repr__(self) -> str:
         return f"{self.id} | {self.name} | {self.group}"
+    
+# Support table
+class Support(Base):
+    __tablename__ = 'support'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    email = Column(String(50))
+    phone = Column(String(30))
+    query = Column(String(250))
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 if __name__ == "__main__":
     engine = create_engine('sqlite:///database.db')

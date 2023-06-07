@@ -3,6 +3,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from project_orm import User
+from project_orm import Support
 from utils import *
 import os
 from werkzeug.utils import secure_filename
@@ -107,8 +108,29 @@ def whyus():
 
 @app.route('/support', methods=['GET', 'POST'])
 def support():
-    msg = ''
-    return render_template('support.html', msg=msg, title = "| Support Desk")
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        query = request.form.get('query')
+        if name and len(name) >= 3:
+            if email and '@' in email and validate_email(email):
+                if phone and len(phone) == 10 :
+                    try: 
+                        newquery = Support(name = name, email = email, phone = phone, query = query)
+                        sess.add(newquery)
+                        sess.commit()
+                        flash('We got your Query ✅. Our team will contact you soon', 'success')
+                        return redirect('/support')
+                    except:
+                        flash('Some error occured', 'danger')
+                else:
+                    flash('Invalid Phone Number ! Enter a 10 digit valid number', 'danger')
+            else:
+                flash('Email is invalid', 'danger')
+        else:
+            flash('Enter a Valid Name', 'danger')
+    return render_template('support.html', title = "| Support Desk")
 
 
 @app.route('/dashboard')
