@@ -313,12 +313,13 @@ body{
     }
     .UserHeading{
       margin-top: 10% !important;
+      padding: 2%;
     }
     .UserLogout{
       margin-left: 10px;
     }
     .startDetectionSection{
-      height: 150px;
+      height: auto;
     }
     /* css for login page */
     .LoginSection{
