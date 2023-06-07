@@ -56,7 +56,7 @@ def login():
             else:
                 flash('Invalid email or password', 'danger')
         else:
-            flash('Invalid email or password', 'danger')
+            flash('Incorrect email or password', 'danger')
     return render_template('login.html', title='| Login now')
 
 
