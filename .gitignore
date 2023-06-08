@@ -1,5 +1,11 @@
-/evaluation_ucf24_jhmdb
-/latest_detection.json
 /pretrained
 /usr
 /weights
+/__pycache__
+/static/uploads
+/datasets/__pycache__
+/datasets/ava_evaluation/__pycache__
+/backbones_2d/__pycache__
+/backbones_3d/__pycache__
+/cfg/__pycache__
+/core/__pycache__
