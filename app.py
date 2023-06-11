@@ -158,10 +158,13 @@ def result_video():
         cmd =f"python test_video_ava.py --cfg cfg/ava.yaml --url {session['url']}".split()
         print(cmd)
         subprocess.call(cmd, shell=True) 
-        return redirect('/dashboard') 
+        return redirect('/result') 
     else:
         return redirect('/dashboard')
 
+@app.route('/result')
+def result():
+    return render_template('result.html', title = '| result')
 
 
 if __name__ == '__main__':
