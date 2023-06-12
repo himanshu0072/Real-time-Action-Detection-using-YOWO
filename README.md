@@ -62,3 +62,14 @@ $ python main.py --cfg cfg/ava.yaml
 
 ## Note :
 This Project is using AVA Dataset. So to download the dataset and setup the file you can visit <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">AVA DATASET</a>
+
+#### Team members:
+<ul>
+  <li>
+    <a href="https://github.com/himanshu0072" target="_blank">Himanshu Prajapati</a></li>
+  <li>
+    <a href="https://github.com/aayushg2002" target="_blank">Ayush Gupta</a></li>
+  <li>
+     <a href="https://github.com/2002mayank" target="_blank">Mayank Patel (ME)</a>
+  </li>
+  </ul>
