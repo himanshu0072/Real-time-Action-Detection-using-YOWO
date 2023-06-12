@@ -60,9 +60,6 @@ def login():
     return render_template('login.html', title='| Login now')
 
 
-# @app.route('/dashboard')
-# def dashboard():
-#     return render_template('dashboard.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -148,7 +145,7 @@ def dashboard():
 def result_camera():
     import subprocess
     subprocess.call('python test_video_ava.py --cfg cfg/ava.yaml'.split(), shell=True)
-    return redirect('/dashboard')
+    return redirect('/result')
 
 @app.route('/result/video')
 def result_video():
@@ -164,7 +161,62 @@ def result_video():
 
 @app.route('/result')
 def result():
-    return render_template('result.html', title = '| result')
+    if 'logged_in' in session:
+        return render_template('result.html', title = '| result')
+    else:
+        flash('Login Required', 'danger')
+        return redirect('/login')
+
+# this section is for admin login and managing data
+
+@app.route('/adminlogin', methods=['GET', 'POST'])
+def adminlogin():
+    if request.method == 'POST':
+        emailID = request.form.get('email')
+        passwordID = request.form.get('password')
+        print(emailID, passwordID)
+        name = "Himanshu Prajapati"
+        if emailID == "himanshu@gmail.com" and passwordID == "123456":
+            session['logged_in'] = True
+            session['user_name'] = name
+            flash('Login successful!', 'success')
+            # Perform the necessary actions after successful login
+            return redirect('/adminDashboard')        
+        else:
+            flash('Incorrect email or password', 'danger')
+    return render_template('admin.html', title="| login now")
+
+@app.route('/adminDashboard')
+def adminDashboard():
+    if 'logged_in' in session:
+        user_name = session.get('user_name')
+        return render_template('adminDashboard.html', title = "| Dashboard", user_name = user_name)
+    else:
+        flash('Admin Login Required', 'danger')
+        return redirect('/adminlogin')
+
+@app.route('/adminlogout')
+def adminlogout():
+    session.clear()
+    return redirect('/adminlogin')
+
+@app.route('/manageUsers')
+def manageUsers():
+    if 'logged_in' in session:
+        users = sess.query(User).all()
+    else:
+        flash('Admin Login Required', 'danger')
+        return redirect('/adminlogin')
+    return render_template("manageUsers.html", title = "| all users", users = users)
+
+@app.route('/manageQueries')
+def manageQueries():
+    if 'logged_in' in session:
+        users = sess.query(Support).all()
+    else:
+        flash('Admin Login Required', 'danger')
+        return redirect('/adminlogin')
+    return render_template("manageQueries.html", title = "| all users", users = users)
 
 
 if __name__ == '__main__':

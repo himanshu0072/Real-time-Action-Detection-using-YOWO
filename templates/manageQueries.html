@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container p-4 bg-dark my-4 border-2">
+    <a class="btn btn-danger " href="/adminDashboard">Go back</a>
+    <h1 class="text-center mb-4">All Messages and Queries</h1>
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Query</th>
+                <th scope="col">Quesry Date</th>
+                <th scope="col">Join Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.query }}</td>
+                <td>{{ user.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
