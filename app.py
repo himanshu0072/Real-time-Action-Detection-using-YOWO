@@ -225,6 +225,16 @@ def manageQueries():
         return redirect('/adminlogin')
     return render_template("manageQueries.html", title = "| all users", users = users)
 
+@app.route('/lastDetectedActions')
+def lastDetectedActions():
+    if 'logged_in' in session:
+        actions = load_action_list()
+        file = '/static/actions.txt'
+    else:
+        flash('Admin Login Required', 'danger')
+        return redirect('/adminlogin')
+    return render_template("manageLastDetection.html", title = "| Last Detection", actions=set(actions.split('|')), file=file)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
