@@ -7,6 +7,7 @@ from project_orm import Support
 from utils import *
 import os
 from werkzeug.utils import secure_filename
+import pickle
 
 app = Flask(__name__)
 app.secret_key = "Himashu dev"
@@ -17,6 +18,10 @@ sess = Session()
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 30 # 2MB
 app.config['UPLOAD_EXTENSIONS'] = ['.mp4','.mov']
 app.config['UPLOAD_PATH'] = 'uploads'
+
+def load_action_list():
+    with open('static/actions.txt', 'rb') as f:
+        return str(pickle.load(f))
 
 
 @app.route('/upload',methods=['POST'])
@@ -162,7 +167,9 @@ def result_video():
 @app.route('/result')
 def result():
     if 'logged_in' in session:
-        return render_template('result.html', title = '| result')
+        actions = load_action_list()
+        file = '/static/actions.txt'
+        return render_template('result.html', title = '| result', actions=set(actions.split('|')), file=file)
     else:
         flash('Login Required', 'danger')
         return redirect('/login')

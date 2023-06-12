@@ -22,6 +22,14 @@ from cfg import parser
 from core.utils import *
 from core.region_loss import RegionLoss, RegionLoss_Ava
 from core.model import YOWO, get_fine_tuning_parameters
+import pickle
+
+def save_actions(data):
+    with open('static/actions.txt', 'wb' ) as f:
+        data = "|".join(set(data))
+        print(data)
+        pickle.dump(data,f)
+
 
 
 # Load configuration arguments
@@ -39,7 +47,6 @@ cfg = parser.load_config(args)
 model = YOWO(cfg)
 model = model.cuda()
 model = nn.DataParallel(model, device_ids=None)  # in multi-gpu case
-
 
 # Load resume path if necessary
 # ---------------------------------------------------------------
@@ -83,7 +90,7 @@ cap = cv2.VideoCapture(video_path)
 
 cnt = 1
 queue = []
-
+actions = []
 # set screen size
 
 while (cap.isOpened()):
@@ -173,6 +180,7 @@ while (cap.isOpened()):
             coord = []
             text = []
             text_size = []
+            actions_list = []
             # scores, indices  = [list(a) for a in zip(*sorted(zip(scores,indices), reverse=True))] # if you want, you can sort according to confidence level
             for _, cls_ind in enumerate(indices):
                 text.append("[{:.2f}] ".format(scores[_]) +
@@ -182,14 +190,32 @@ while (cap.isOpened()):
                 coord.append((x1+3, y1+7+10*_))
                 cv2.rectangle(blk, (coord[-1][0]-1, coord[-1][1]-6), (coord[-1][0]+text_size[-1]
                               [0]+1, coord[-1][1]+text_size[-1][1]-4), (0, 255, 0), cv2.FILLED)
+                actions_list.append(str(labelmap[cls_ind]['name']))
             frame = cv2.addWeighted(frame, 1.0, blk, 0.25, 1)
             for t in range(len(text)):
                 cv2.putText(frame, text[t], coord[t], font, 0.25, (0, 0, 0), 1)
+        # print(", ".join(actions_list))
+        try:
+            actions.append("|".join(actions_list))
+        except:
+            pass
+    # text in CV2 for user help   
+    cancel_text = "Press 'Q' to cancel/Result"
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    font_scale = 0.3  # Adjust the font scale to make the text smaller
+    text_thickness = 1
+    text_size = cv2.getTextSize(cancel_text, font, font_scale, text_thickness)[0]
+    text_x = 3
+    text_y = 5 + text_size[1]
+    cv2.putText(frame, cancel_text, (text_x, text_y), font, font_scale, (0, 0, 0), text_thickness)
+
+
     frame = cv2.resize(frame, (0,0), fx=2.5, fy=2.5)
     cv2.imshow('frame', frame)
     # cv2.imwrite('{:05d}.jpg'.format(cnt), frame) # save figures if necessay
     cnt += 1
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        save_actions(actions)
         break
 
 

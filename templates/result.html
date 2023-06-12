@@ -5,12 +5,11 @@
     <h2 class="text-center border border-success rounded-0">Preview - Result</h2>
     <div class="my-5">
         <h2>Detected Actions</h2>
+
         <ol>
-            <li>Sit</li>
-            <li>stand</li>
-            <li>talking</li>
-            <li>watching</li>
-            <li>moving</li>
+            {% for r in actions %}
+            <li>{{r}}</li>
+            {% endfor %}
         </ol>
         <div class="d flex text-center ">
 
@@ -22,7 +21,7 @@
                         d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
                 </svg></a>
 
-            <a class="btn btn-success mx-1" type="button" href="/dashboard">Download Actions <svg
+            <a class="btn btn-success mx-1" type="button" href="{{file}}" download>Download Actions <svg
                     xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-download mb-1" viewBox="0 0 16 16">
                     <path
