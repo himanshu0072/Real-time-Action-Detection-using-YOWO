@@ -7,6 +7,7 @@ from project_orm import Support
 from utils import *
 import os
 from werkzeug.utils import secure_filename
+from sqlalchemy.exc import IntegrityError
 import pickle
 
 app = Flask(__name__)
@@ -76,14 +77,20 @@ def register():
         if name and len(name) >= 3:
             if email and '@' in email and validate_email(email):
                 if password and len(password) >= 6:
-                    try: 
-                        newuser = User(name = name, email = email, password = password, gender = gender)
-                        sess.add(newuser)
-                        sess.commit()
-                        flash('registration successful', 'success')
-                        return redirect('/login')
-                    except:
-                        flash('Account already exists', 'danger')
+                    try:
+                        existing_user = sess.query(User).filter_by(email=email).first()
+                        if existing_user:
+                            flash('Account already exists please login', 'danger')
+                            return redirect('/login')
+                        else:
+                            newuser = User(name=name, email=email, password=password, gender=gender)
+                            sess.add(newuser)
+                            sess.commit()
+                            flash('Registration successful', 'success')
+                            return redirect('/login')
+                    except IntegrityError:
+                        sess.rollback()
+                        flash('An error occurred while registering', 'danger')
                 else:
                     flash('Password length should be minimum 6 character', 'danger')
             else:
@@ -205,7 +212,7 @@ def adminDashboard():
 @app.route('/adminlogout')
 def adminlogout():
     session.clear()
-    return redirect('/adminlogin')
+    return redirect('/')
 
 @app.route('/manageUsers')
 def manageUsers():
