@@ -14,7 +14,7 @@
   <img src='/examples/frontpage.jpg' width=40%>&nbsp; &nbsp; &nbsp;&nbsp;
   <img src='/examples/dashboard.jpg' width="40%">&nbsp; &nbsp; &nbsp;&nbsp;
 </div>
-Check the Web App Live 👉 <a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
+
 
 #### What we have used :-
 <ol>
