@@ -70,6 +70,6 @@ This Project is using AVA Dataset. So to download the dataset and setup the file
   <li>
     <a href="https://github.com/aayushg2002" target="_blank">Ayush Gupta</a></li>
   <li>
-     <a href="https://github.com/2002mayank" target="_blank">Mayank Patel (ME)</a>
+     <a href="https://github.com/2002mayank" target="_blank">Mayank Patel</a>
   </li>
   </ul>
